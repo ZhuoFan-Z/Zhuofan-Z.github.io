@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Guangchuang Yu">
+<meta name="keywords" content="">
+<meta name="description" content="To simplify enriched GO result, we can use slim version of GO and use
+enricher
+function to analyze.
+Another strategy is to use
+GOSemSim to calculate
+similarity of GO terms and remove those highly similar terms by keeping
+one representative term. To make this feature available to
+clusterProfiler
+users, I develop a simplify method to reduce redundant GO terms from
+output of enrichGO function.
+require(clusterProfiler)
+data(geneList, package=&quot;DOSE&quot;)
+de &lt;- names(geneList)[abs(geneList) &gt; 2]
+bp &lt;- enrichGO(de, ont=&quot;BP&quot;)
+enrichMap(bp)
+">
+
+
+<meta property="og:description" content="To simplify enriched GO result, we can use slim version of GO and use
+enricher
+function to analyze.
+Another strategy is to use
+GOSemSim to calculate
+similarity of GO terms and remove those highly similar terms by keeping
+one representative term. To make this feature available to
+clusterProfiler
+users, I develop a simplify method to reduce redundant GO terms from
+output of enrichGO function.
+require(clusterProfiler)
+data(geneList, package=&quot;DOSE&quot;)
+de &lt;- names(geneList)[abs(geneList) &gt; 2]
+bp &lt;- enrichGO(de, ont=&quot;BP&quot;)
+enrichMap(bp)
+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="use simplify to remove redundancy of enriched GO terms">
+<meta name="twitter:title" content="use simplify to remove redundancy of enriched GO terms">
+<meta property="og:url" content="https://guangchuangyu.github.io/2015/10/use-simplify-to-remove-redundancy-of-enriched-go-terms/">
+<meta property="twitter:url" content="https://guangchuangyu.github.io/2015/10/use-simplify-to-remove-redundancy-of-enriched-go-terms/">
+<meta property="og:site_name" content="Guangchuang Yu">
+<meta property="og:description" content="To simplify enriched GO result, we can use slim version of GO and use
+enricher
+function to analyze.
+Another strategy is to use
+GOSemSim to calculate
+similarity of GO terms and remove those highly similar terms by keeping
+one representative term. To make this feature available to
+clusterProfiler
+users, I develop a simplify method to reduce redundant GO terms from
+output of enrichGO function.
+require(clusterProfiler)
+data(geneList, package=&quot;DOSE&quot;)
+de &lt;- names(geneList)[abs(geneList) &gt; 2]
+bp &lt;- enrichGO(de, ont=&quot;BP&quot;)
+enrichMap(bp)
+">
+<meta name="twitter:description" content="To simplify enriched GO result, we can use slim version of GO and use
+enricher
+function to analyze.
+Another strategy is to use
+GOSemSim to calculate
+similarity of GO terms and remove those highly similar terms by keeping
+one representative term. To make this feature available to
+clusterProfiler
+users, I develop a simplify method to reduce redundant GO terms from
+output of enrichGO function.
+require(clusterProfiler)
+data(geneList, package=&quot;DOSE&quot;)
+de &lt;- names(geneList)[abs(geneList) &gt; 2]
+bp &lt;- enrichGO(de, ont=&quot;BP&quot;)
+enrichMap(bp)
+">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2015-10-21T09:37:11">
+  
+  
+    <meta property="article:modified_time" content="2015-10-21T09:37:11">
+  
+  
+  
+    
+      <meta property="article:section" content="Visualization">
+    
+      <meta property="article:section" content="R">
+    
+  
+  
+    
+      <meta property="article:tag" content="clusterProfiler">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@guangchuangyu">
+
+
+  <meta name="twitter:creator" content="@guangchuangyu">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=640">
+
+
+    <title>use simplify to remove redundancy of enriched GO terms</title>
+
+    <link rel="icon" href="https://guangchuangyu.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://guangchuangyu.github.io/2015/10/use-simplify-to-remove-redundancy-of-enriched-go-terms/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://guangchuangyu.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-77901140-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://guangchuangyu.github.io/">Guangchuang Yu</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://guangchuangyu.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://guangchuangyu.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Guangchuang Yu</h4>
+        
+          <h5 class="sidebar-profile-bio">Bioinformatics Professor @ SMU</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/GuangchuangYu" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/guangchuangyu" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/blog_images/biobabble.jpg">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-weixin"></i>
+      
+      <span class="sidebar-button-desc">WeChat</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      use simplify to remove redundancy of enriched GO terms
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2015-10-21T09:37:11&#43;08:00">
+        
+  October 21, 2015
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/visualization">Visualization</a>, 
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/r">R</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>To simplify enriched GO result, we can use slim version of GO and use
+<em><a href="http://guangchuangyu.github.io/2015/05/use-clusterprofiler-as-an-universal-enrichment-analysis-tool/">enricher</a></em>
+function to analyze.</p>
+<p>Another strategy is to use
+<a href="http://www.bioconductor.org/packages/GOSemSim">GOSemSim</a> to calculate
+similarity of GO terms and remove those highly similar terms by keeping
+one representative term. To make this feature available to
+<a href="http://www.bioconductor.org/packages/clusterProfiler">clusterProfiler</a>
+users, I develop a <em>simplify</em> method to reduce redundant GO terms from
+output of <em>enrichGO</em> function.</p>
+<pre><code>require(clusterProfiler)
+data(geneList, package=&quot;DOSE&quot;)
+de &lt;- names(geneList)[abs(geneList) &gt; 2]
+bp &lt;- enrichGO(de, ont=&quot;BP&quot;)
+enrichMap(bp)
+</code></pre>
+<p><img src="http://guangchuangyu.github.io/blog_images/Bioconductor/clusterProfiler/bp1.png" alt=""></p>
+<p>The <em>enrichMap</em> doesn&rsquo;t display the whole picture as we use the default
+value <em>n=50</em> to only show 50 highly significant terms. In the
+<em>enrichMap</em>, we can found that there are many redundant terms form a
+highly condense network.</p>
+<p>Now with the <em>simplify</em> method, we can remove redundant terms.</p>
+<pre tabindex="0"><code class="language-{lang="rsplus"}" data-lang="{lang="rsplus"}">bp2 &lt;- simplify(bp, cutoff=0.7, by=&quot;p.adjust&quot;, select_fun=min)
+</code></pre><p>The <em>simplify</em> method apply <em>&lsquo;select_fun&rsquo;</em> (which can be a user defined
+function) to feature &lsquo;<em>by</em>&rsquo; to select one representative terms from
+redundant terms (which have similarity higher than &lsquo;<em>cutoff</em>').
+<img src="http://guangchuangyu.github.io/blog_images/Bioconductor/clusterProfiler/bp2.png" alt=""></p>
+<p>The simplified version of enriched result is more clear and give us a
+more comprehensive view of the whole story.</p>
+<p><em>enrichGO</em> test the whole GO corpus and enriched result may contains
+very general terms.
+<em><a href="http://www.bioconductor.org/packages/clusterProfiler">clusterProfiler</a></em>
+contains a <em>dropGO</em> function to remove specific GO terms or GO level,
+see <a href="https://github.com/GuangchuangYu/clusterProfiler/issues/26">the
+issue</a>. With
+<em>simplify</em> and <em>dropGO</em>, enriched result can be more specific and more
+easy to interpret. Both of these functions work fine with outputs
+obtained from both <em>enrichGO</em> and <em>compareCluster</em>.🍻</p>
+<h2 id="citation">Citation</h2>
+<p><em><strong>Yu G</strong></em>, Wang L, Han Y and He Q<!-- raw HTML omitted -->*<!-- raw HTML omitted -->. <a href="http://online.liebertpub.com/doi/abs/10.1089/omi.2011.0118">clusterProfiler: an R package for comparing biological themes among gene clusters</a>. <em><strong>OMICS: A Journal of Integrative Biology</strong></em>. 2012, 16(5):284-287.</p>
+<!-- raw HTML omitted -->
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://guangchuangyu.github.io/tags/clusterprofiler/">clusterProfiler</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://guangchuangyu.github.io/2015/11/comparison-of-clusterprofiler-and-gsea-p/" data-tooltip="Comparison of clusterProfiler and GSEA-P">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://guangchuangyu.github.io/2015/10/bioc-32-news-of-my-bioc-packages/" data-tooltip="[Bioc 32] NEWS of my BioC packages">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://guangchuangyu.github.io/2015/10/use-simplify-to-remove-redundancy-of-enriched-go-terms/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://guangchuangyu.github.io/2015/10/use-simplify-to-remove-redundancy-of-enriched-go-terms/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://guangchuangyu.github.io/2015/10/use-simplify-to-remove-redundancy-of-enriched-go-terms/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Guangchuang Yu. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://guangchuangyu.github.io/2015/11/comparison-of-clusterprofiler-and-gsea-p/" data-tooltip="Comparison of clusterProfiler and GSEA-P">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://guangchuangyu.github.io/2015/10/bioc-32-news-of-my-bioc-packages/" data-tooltip="[Bioc 32] NEWS of my BioC packages">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://guangchuangyu.github.io/2015/10/use-simplify-to-remove-redundancy-of-enriched-go-terms/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://guangchuangyu.github.io/2015/10/use-simplify-to-remove-redundancy-of-enriched-go-terms/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://guangchuangyu.github.io/2015/10/use-simplify-to-remove-redundancy-of-enriched-go-terms/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fguangchuangyu.github.io%2F2015%2F10%2Fuse-simplify-to-remove-redundancy-of-enriched-go-terms%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fguangchuangyu.github.io%2F2015%2F10%2Fuse-simplify-to-remove-redundancy-of-enriched-go-terms%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fguangchuangyu.github.io%2F2015%2F10%2Fuse-simplify-to-remove-redundancy-of-enriched-go-terms%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Guangchuang Yu</h4>
+    
+      <div id="about-card-bio">Bioinformatics Professor @ SMU</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Bioinformatics Professor
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Guangzhou
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://guangchuangyu.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://guangchuangyu.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/guangchuangyu.github.io\/2015\/10\/use-simplify-to-remove-redundancy-of-enriched-go-terms\/';
+          
+            this.page.identifier = '\/2015\/10\/use-simplify-to-remove-redundancy-of-enriched-go-terms\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'gcyu';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

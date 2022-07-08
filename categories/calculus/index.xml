@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Calculus on Guangchuang Yu</title>
+    <link>https://guangchuangyu.github.io/categories/calculus/</link>
+    <description>Recent content in Calculus on Guangchuang Yu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Sep 2011 08:57:48 +0800</lastBuildDate><atom:link href="https://guangchuangyu.github.io/categories/calculus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R for scientific programming</title>
+      <link>https://guangchuangyu.github.io/2011/09/r-for-scientific-programming/</link>
+      <pubDate>Sat, 24 Sep 2011 08:57:48 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2011/09/r-for-scientific-programming/</guid>
+      <description>&lt;p&gt;刚看完《&lt;a href=&#34;http://book.douban.com/subject/4324593/&#34;&gt;Introduction to Scientific Programming and Simulation Using R&lt;/a&gt;》这本书，&lt;/p&gt;
+&lt;p&gt;第一部分是R编程入门； 第二部分是数值计算，主要是解方程，求积分和优化；第三部分是概率和统计，主要讲概率、随机变量等概念和参数估计；
+第四部分是simulation，主要讲Monte Carlo积分和方差降低。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MC积分</title>
+      <link>https://guangchuangyu.github.io/2011/09/mc-integration/</link>
+      <pubDate>Thu, 22 Sep 2011 06:40:22 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2011/09/mc-integration/</guid>
+      <description>&lt;p&gt;Monte Carlo方法由冯·诺伊曼于二战时提出，1777年法国人布丰用此思路&lt;a href=&#34;http://guangchuangyu.github.io/cn/2011/09/monte-carlo-estimate-pi/&#34;&gt;估计pi值&lt;/a&gt;被认为是Monte
+Carlo的起源，这个方法简单又快速，通过产生随机数，将数值计算问题变成随机变量的某些特征值（比如期望值）。&lt;/p&gt;
+&lt;p&gt;积分运算，和&lt;a href=&#34;http://guangchuangyu.github.io/cn/2011/09/monte-carlo-estimate-pi/&#34;&gt;估计pi值&lt;/a&gt;一样，用hit
+and miss法估计。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hit_miss &amp;lt;- function(fun, lower, upper, n=500) {
+    # Monte Carlo integration using the hit and miss method
+    x &amp;lt;- runif(n, lower, upper)
+    f.value &amp;lt;- sapply(seq(lower, upper, 0.001), fun)
+    f.min &amp;lt;- min(f.value)
+    f.max &amp;lt;- max(f.value)
+    y &amp;lt;- runif(n, f.min, f.max)
+    hits &amp;lt;- sum(y &amp;lt;= fun(x))
+    area &amp;lt;- (upper-lower) * f.min + hits/n * (upper-lower) * (f.max-f.min)
+    return(area)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;hit and miss方法收敛太慢，效率并不高，通常所说的MC积分是指下面这个方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Single variable optimization</title>
+      <link>https://guangchuangyu.github.io/2011/01/single-variable-optimization/</link>
+      <pubDate>Sat, 01 Jan 2011 08:52:48 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2011/01/single-variable-optimization/</guid>
+      <description>&lt;p&gt;Optimization means to seek minima or maxima of a funtion within a given defined domain.&lt;/p&gt;
+&lt;p&gt;If a function reach its maxima or minima, the derivative at that point is approaching to 0. If we apply &lt;a href=&#34;https://mp.weixin.qq.com/s/qhT_sooSINjjvWpwq2d1VA&#34;&gt;Newton-Raphson method&lt;/a&gt; for root finding to &lt;code&gt;f&#39;&lt;/code&gt;, we can get the optimized &lt;code&gt;f&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>one-dimensional integrals</title>
+      <link>https://guangchuangyu.github.io/2010/12/one-dimensional-integrals/</link>
+      <pubDate>Sat, 25 Dec 2010 10:40:22 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2010/12/one-dimensional-integrals/</guid>
+      <description>The foundamental idea of numerical integration is to estimate the area of the region in the xy-plane bounded by the graph of function f(x). The integral was esimated by dividing x into small intervals, then adds all the small approximations to give a total approximation.
+Trapezoidal rule Numerical integration can be done by trapezoidal rule, simpson&amp;rsquo;s rule and quadrature rules. R has a built-in function, integrate, which performs adaptive quadrature.</description>
+    </item>
+    
+    <item>
+      <title>Root finding</title>
+      <link>https://guangchuangyu.github.io/2010/12/root-finding/</link>
+      <pubDate>Sat, 04 Dec 2010 10:40:22 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2010/12/root-finding/</guid>
+      <description>&lt;p&gt;Numerical root finding methods use iteration, producing a sequence of numbers that hopefully converge towards a limits which is a root. This post only focuses four basic algorithms on root finding, and covers bisection method, fixed point method, Newton-Raphson method, and secant method.&lt;/p&gt;
+&lt;p&gt;The simplest root finding algorithms is the &lt;a href=&#34;https://guangchuangyu.github.io/cn/2008/11/bisect-to-solve-equation/&#34;&gt;bisection method&lt;/a&gt;. It works when &lt;code&gt;f&lt;/code&gt; is a continuous function and it requires previous knowledge of two initial gueeses, &lt;code&gt;u&lt;/code&gt; and &lt;code&gt;v&lt;/code&gt;, such that &lt;code&gt;f(u)&lt;/code&gt; and &lt;code&gt;f(v)&lt;/code&gt; have opposite signs. This method is reliable, but converges slowly. For detail, see &lt;a href=&#34;https://guangchuangyu.github.io/cn/2008/11/bisect-to-solve-equation/&#34;&gt;https://guangchuangyu.github.io/cn/2008/11/bisect-to-solve-equation/&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;Root finding can be reduced to the problem of finding fixed points of the function &lt;code&gt;g(x) = c*f(x) +x&lt;/code&gt;, where &lt;code&gt;c&lt;/code&gt; is a non-zero constant. It is clearly that &lt;code&gt;f(a) = 0&lt;/code&gt; if and only if &lt;code&gt;g(a) = a&lt;/code&gt;. This is the so called fixed point algorithm.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用Taylor公式估计函数值</title>
+      <link>https://guangchuangyu.github.io/2009/03/estimate-function-value-by-taylor-theorem/</link>
+      <pubDate>Tue, 17 Mar 2009 05:23:16 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2009/03/estimate-function-value-by-taylor-theorem/</guid>
+      <description>&lt;p&gt;泰勒公式学过微积分都应该知道，可以翻wiki复习一下，&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%B3%B0%E5%8B%92%E5%85%AC%E5%BC%8F&#34;&gt;https://zh.wikipedia.org/wiki/泰勒公式&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;用R简单实现一下：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; efv &amp;lt;- function(f, value, variable=&amp;quot;x&amp;quot;, a=0, eps=0.001) {
+     #estimate function value using Taylor theorem
+     assign(eval(variable), a)
+     fv.old &amp;lt;- eval(f)
+     k &amp;lt;- 1     
+     repeat {
+         df &amp;lt;- D(f, variable)
+         if (df == 0)
+             break
+         fv.new &amp;lt;- fv.old + eval(df)*(value-a)^k/factorial(k)
+         if (fv.new - fv.old &amp;lt; eps)
+             break
+         fv.old &amp;lt;- fv.new
+         f &amp;lt;- df
+         k &amp;lt;- k+1
+     }
+     return (fv.new)
+ }
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>用中值定理求根</title>
+      <link>https://guangchuangyu.github.io/2008/11/bisect-to-solve-equation/</link>
+      <pubDate>Tue, 25 Nov 2008 10:40:22 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2008/11/bisect-to-solve-equation/</guid>
+      <description>&lt;p&gt;翻看了以前写的&lt;a href=&#34;https://guangchuangyu.github.io/cn/2007/06/newton-raphson-method/&#34;&gt;使用Newton-Raphson Method求一个数的开方&lt;/a&gt;，想到其实也可以用中值定理来实现。
+中值定理：f(x)是一个连续性的函数，在[u,v]区间内，当c的值位于f(u)和f(v)之间时，至少存在一个点，满足f(x) = c 当f(u)和f(v)一正一负时，那么在[u,v]之间至少有一个根的存在，这个定理本来就是拿来证明根的存在的，但是其实也可以用来求解根。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

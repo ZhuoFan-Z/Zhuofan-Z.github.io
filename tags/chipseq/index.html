@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Guangchuang Yu">
+<meta name="keywords" content="">
+<meta name="description" content="Guangchuang&#39;s Blog">
+
+
+<meta property="og:description" content="Guangchuang&#39;s Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ChIPseq">
+<meta name="twitter:title" content="ChIPseq">
+<meta property="og:url" content="https://guangchuangyu.github.io/tags/chipseq/">
+<meta property="twitter:url" content="https://guangchuangyu.github.io/tags/chipseq/">
+<meta property="og:site_name" content="Guangchuang Yu">
+<meta property="og:description" content="Guangchuang&#39;s Blog">
+<meta name="twitter:description" content="Guangchuang&#39;s Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@guangchuangyu">
+
+
+  <meta name="twitter:creator" content="@guangchuangyu">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=640">
+
+
+    <title>ChIPseq</title>
+
+    <link rel="icon" href="https://guangchuangyu.github.io/favicon.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://guangchuangyu.github.io/tags/chipseq/index.xml">
+    
+
+    
+
+    <link rel="canonical" href="https://guangchuangyu.github.io/tags/chipseq/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://guangchuangyu.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-77901140-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://guangchuangyu.github.io/">Guangchuang Yu</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://guangchuangyu.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://guangchuangyu.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Guangchuang Yu</h4>
+        
+          <h5 class="sidebar-profile-bio">Bioinformatics Professor @ SMU</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/GuangchuangYu" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/guangchuangyu" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/blog_images/biobabble.jpg">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-weixin"></i>
+      
+      <span class="sidebar-button-desc">WeChat</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="1"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://guangchuangyu.github.io/2017/03/bed%E6%96%87%E4%BB%B6/">
+          BED文件
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-03-09T00:13:57&#43;08:00">
+        
+  March 9, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/r">R</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <p>BED的全称是Browser Extensible Data，顾名思义是为genome browser设计的，大名鼎鼎的bedtools可不是什么「床上用品」。</p>
+<p>BED包含有3个必须的字段和9个可选字段。</p>
+<p>三个字段包括：</p>
+<ul>
+<li>1 chrom - 染色体名字</li>
+<li>2 chromStart - 染色体起始位点</li>
+<li>3 chromEnd - 染色体终止位点</li>
+</ul>
+<blockquote>
+<p>这里必须指出的是<strong>chromStart</strong>是起始于0，而不是1。很多分析软件都忽略
+了这一点，会有一个碱基的位移，据我所知Homer和ChIPseeker没有这个问题，而像peakAnalyzer, ChIPpeakAnno等都有位移的问题。</p>
+</blockquote>
+<p>可选的9个字段包括：</p>
+<ul>
+<li>4 name - 名字</li>
+<li>5 score - 分值(0-1000), 用于genome browser展示时上色。</li>
+<li>6 strand - 正负链，对于ChIPseq数据来说，<strong>一般</strong>没有正负链信息。</li>
+<li>7 thickStart - 画矩形的起点</li>
+<li>8 thickEnd - 画矩形的终点</li>
+<li>9 itemRgb - RGB值</li>
+<li>10 blockCount - 子元件（比如外显子）的数目</li>
+<li>11 blockSizes - 子元件的大小</li>
+<li>12 blockStarts - 子元件的起始位点</li>
+</ul>
+      
+      <p>
+        <a href="https://guangchuangyu.github.io/2017/03/bed%E6%96%87%E4%BB%B6/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://guangchuangyu.github.io/2014/04/visualization-methods-in-chipseeker/">
+          visualization methods in ChIPseeker
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-04-30T06:33:41&#43;08:00">
+        
+  April 30, 2014
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/genomics">Genomics</a>, 
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/visualization">Visualization</a>, 
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/r">R</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <p>After two weeks developed, I have added/updated some plot functions in
+<a href="http://bioconductor.org/packages/release/bioc/html/ChIPseeker.html">ChIPseeker</a>
+(version &gt;=1.0.1).</p>
+<h3 id="chip-peaks-over-chromosomes">ChIP peaks over Chromosomes</h3>
+<pre tabindex="0"><code>&gt; files=getSampleFiles()
+&gt; peak=readPeakFile(files[[4]])
+&gt; peak
+GRanges object with 1331 ranges and 2 metadata columns:
+         seqnames                 ranges strand   |             V4        V5
+                               |        
+     [1]     chr1     [ 815092,  817883]      *   |    MACS_peak_1    295.76
+     [2]     chr1     [1243287, 1244338]      *   |    MACS_peak_2     63.19
+     [3]     chr1     [2979976, 2981228]      *   |    MACS_peak_3    100.16
+     [4]     chr1     [3566181, 3567876]      *   |    MACS_peak_4    558.89
+     [5]     chr1     [3816545, 3818111]      *   |    MACS_peak_5     57.57
+     ...      ...                    ...    ... ...            ...       ...
+  [1327]     chrX [135244782, 135245821]      *   | MACS_peak_1327     55.54
+  [1328]     chrX [139171963, 139173506]      *   | MACS_peak_1328    270.19
+  [1329]     chrX [139583953, 139586126]      *   | MACS_peak_1329    918.73
+  [1330]     chrX [139592001, 139593238]      *   | MACS_peak_1330    210.88
+  [1331]     chrY [ 13845133,  13845777]      *   | MACS_peak_1331     58.39
+  ---
+  seqlengths:
+    chr1 chr10 chr11 chr12 chr13 chr14 ...  chr6  chr7  chr8  chr9  chrX  chrY
+      NA    NA    NA    NA    NA    NA ...    NA    NA    NA    NA    NA    NA
+&gt; covplot(peak, weightCol=&quot;V5&quot;)
+</code></pre>
+      
+      <p>
+        <a href="https://guangchuangyu.github.io/2014/04/visualization-methods-in-chipseeker/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://guangchuangyu.github.io/2014/04/chipseeker-for-chip-peak-annotation/">
+          ChIPseeker for ChIP peak annotation
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-04-13T13:02:15&#43;08:00">
+        
+  April 13, 2014
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/r">R</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <p><a href="http://www.bioconductor.org/packages/2.14/bioc/html/ChIPpeakAnno.html">ChIPpeakAnno</a>
+WAS the only R package for ChIP peak annotation. I used it for
+annotating peak in my recent study.</p>
+<p>I found it does not consider the strand information of genes. I
+<a href="http://guangchuangyu.github.io/2014/01/bug-of-r-package-chippeakanno/">reported the bug</a> to the
+authors, but they are reluctant to change.</p>
+<p>So I decided to develop my own package,
+<a href="http://www.bioconductor.org/packages/2.14/bioc/html/ChIPseeker.html">ChIPseeker</a>,
+and it&rsquo;s now available in Bioconductor.</p>
+      
+      <p>
+        <a href="https://guangchuangyu.github.io/2014/04/chipseeker-for-chip-peak-annotation/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://guangchuangyu.github.io/2014/01/bug-of-r-package-chippeakanno/">
+          Bug of R package ChIPpeakAnno
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2014-01-14T17:09:07&#43;08:00">
+        
+  January 14, 2014
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/genomics">Genomics</a>, 
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/r">R</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <p>I used R package <strong>ChIPpeakAnno</strong> for annotating peaks, and found that
+it handle the DNA strand in the wrong way. Maybe the developers were
+from the computer science but not biology background.</p>
+<pre tabindex="0"><code>&gt; require(ChIPpeakAnno)
+&gt; packageVersion(&quot;ChIPpeakAnno&quot;)
+[1] '2.10.0'
+&gt; peak &lt;- RangedData(space=&quot;chr1&quot;, IRanges(24736757, 24737528))
+&gt; data(TSS.human.GRCh37)
+&gt; ap &lt;- annotatePeakInBatch(peak, Annotation=TSS.human.GRCh37)
+&gt; ap
+RangedData with 1 row and 9 value columns across 1 space
+                     space               ranges |        peak      strand
+                               |  
+1 ENSG00000001461        1 [24736757, 24737528] |           1           +
+                          feature start_position end_position insideFeature
+                                   
+1 ENSG00000001461 ENSG00000001461       24742284     24799466      upstream
+                  distancetoFeature shortestDistance fromOverlappingOrNearest
+                                                
+1 ENSG00000001461             -5527             4756             NearestStart
+</code></pre>
+      
+      <p>
+        <a href="https://guangchuangyu.github.io/2014/01/bug-of-r-package-chippeakanno/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+            
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Guangchuang Yu. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Guangchuang Yu</h4>
+    
+      <div id="about-card-bio">Bioinformatics Professor @ SMU</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Bioinformatics Professor
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Guangzhou
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://guangchuangyu.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://guangchuangyu.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+
+    
+  </body>
+</html>
+

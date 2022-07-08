@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publication on Guangchuang Yu</title>
+    <link>https://guangchuangyu.github.io/categories/publication/</link>
+    <description>Recent content in Publication on Guangchuang Yu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Nov 2018 01:23:16 +0800</lastBuildDate><atom:link href="https://guangchuangyu.github.io/categories/publication/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DOSE包引用过百</title>
+      <link>https://guangchuangyu.github.io/2018/11/dose-citation-above-100/</link>
+      <pubDate>Sun, 25 Nov 2018 01:23:16 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2018/11/dose-citation-above-100/</guid>
+      <description>Disease ontology (DO) annotates human genes in the context of disease. DO is important annotation in translating molecular findings from high-throughput data to clinical relevance. DOSE is an R package providing semantic similarity computations among DO terms and genes which allows biologists to explore the similarities of diseases and of gene functions in disease perspective. Enrichment analyses including hypergeometric model and gene set enrichment analysis are also implemented to support discovering disease associations of high-throughput biological data.</description>
+    </item>
+    
+    <item>
+      <title>基因或蛋白之间，谁是谁的死党？</title>
+      <link>https://guangchuangyu.github.io/2018/01/using-gosemsim-to-rank-proteins/</link>
+      <pubDate>Tue, 02 Jan 2018 10:57:15 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2018/01/using-gosemsim-to-rank-proteins/</guid>
+      <description>&lt;p&gt;很多人会有这样一个问题，差异基因一大堆，到底该选那个来做下游的实验验证？这个问题，说白了是个基因「重要性」的打分问题，你做差异基因分析的时候，就可以看做是个打分的过程，p值是你的统计量，p值越小，打分越高，然而所有的打分都是辅助帮我们进一步缩小范围而已，并不是打分越高就越「重要」，如果打分可以说明一切，那么我们就不需要实验验证了。所以像差异基因分析，我们一般是卡p &amp;lt; 0.01或p &amp;lt; 0.05来过滤，把p值小的基因留下来，但我们并不能说p值最小的基因就是最重要的。&lt;/p&gt;
+&lt;p&gt;回到开头的问题，我们要的是对打分（差异分析）结果再利用别的手段，再一次进行打分，进一步缩小范围。比如你可以通过构建相互作用网络，通过分析betweenness，找hub分子。当然打分不一定是要基于基因/蛋白水平，也可以是通路水平，比如你可以用&lt;a href=&#34;http://mp.weixin.qq.com/s/ScwaofLd_ybfECYjL1dGow&#34;&gt;clusterProfiler进行富集分析&lt;/a&gt;，然后把你的目标限定在某个/些通路上。反正就是各种手段一起上，直到你能够限定到少量几个基因上，对于做实验验证的人来说，再好不过。&lt;/p&gt;
+&lt;p&gt;上一周发表的《&lt;a href=&#34;https://mp.weixin.qq.com/s/FTzgf1JHXAhDta2u-cDksQ&#34;&gt;GOSemSim: GO语义相似性度量&lt;/a&gt;》，我记录了GOSemSim包被应用于各种各样的场景，它当然也可以拿来给基因/蛋白质打分。比如你用clusterProfiler分析后，就想验证某一通路，但不知道要选这个通路的哪个基因来做为切入点。&lt;/p&gt;
+&lt;p&gt;首先问一个问题，同一通路上的基因功能相似性高吗？大家可能会潜意识地认为应该比较高，这不一定的，基因/蛋白有直接或间接的相互作用，但这种相互作用可能只是「月上柳梢头，人约黄昏后」而已，可能偶尔才来一发，这种属于约会型。一个基因/蛋白通常会参与到多条不同的通路中，如果两个蛋白在不同的通路中经常一起出现，那么它们的功能相似性才会高，这种属于基友/闺蜜的死党型。今天就来讲一讲到底谁和谁在约会，谁和谁又是死党。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Y Han, &lt;strong&gt;G Yu&lt;/strong&gt;, H Sarioglu, A Caballero-Martinez, F Schlott, M Ueffing, H Haase, C Peschel, AM Krackhardt. &lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S1874391912007567&#34;&gt;Proteomic investigation of the interactome of FMNL1 in hematopoietic cells unveils a role in calcium-dependent membrane plasticity&lt;/a&gt;. &lt;strong&gt;&lt;em&gt;Journal of Proteomics&lt;/em&gt;&lt;/strong&gt;. 2013, 78:72-82.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这篇文章是和慕尼黑工业大学（Technische Universität München）合作的一篇文章，使用了Co-IP去拉蛋白，再用LC-MS/MS进行鉴定，Co-IP是鉴定蛋白相互作用的常用手段，当然拉下来的蛋白不见得就是有真实的相互作用，它甚至于可能只是背景污染而已，所以我们需要对拉下来的蛋白进行打分，找出一些可能性比较高的候选蛋白进一步进行验证。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>using GOSemSim to rank proteins obtained by co-IP</title>
+      <link>https://guangchuangyu.github.io/2015/05/using-gosemsim-to-rank-proteins-obtained-by-co-ip/</link>
+      <pubDate>Mon, 04 May 2015 10:57:15 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2015/05/using-gosemsim-to-rank-proteins-obtained-by-co-ip/</guid>
+      <description>&lt;p&gt;Co-IP is usually used to identified interactions among specific
+proteins. It is widely used in detecting protein complex. Unfortunately,
+an identified protein may not be an interactor, and sometimes can be a
+background contaminant. Ranking proteins can help us to focus a study on
+a few high quality candidates for subsequent interaction investigation.
+My R package &lt;a href=&#34;https://github.com/GuangchuangYu/GOSemSim&#34;&gt;GOSemSim&lt;/a&gt; has
+been used in many studies to investigate protein protein interaction,
+see &lt;a href=&#34;http://pubs.rsc.org/en/content/articlehtml/2014/mb/c3mb70486f&#34;&gt;1&lt;/a&gt;,
+&lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S1874391915000937&#34;&gt;2&lt;/a&gt;,
+&lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S1476927115000493&#34;&gt;3&lt;/a&gt;,
+&lt;a href=&#34;http://www.mcponline.org/content/13/5/1318.short&#34;&gt;4&lt;/a&gt; and
+&lt;a href=&#34;http://scholar.google.com/scholar?oi=bibs&amp;amp;hl=en&amp;amp;cites=9484177541993722322,16048119560581430155,18126401808149291947&#34;&gt;more&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Phosphoproteome profile of human lung cancer cell line A549</title>
+      <link>https://guangchuangyu.github.io/2010/11/phosphoproteome-profile-of-human-lung-cancer-cell-line-a549/</link>
+      <pubDate>Tue, 23 Nov 2010 02:22:22 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2010/11/phosphoproteome-profile-of-human-lung-cancer-cell-line-a549/</guid>
+      <description>As an in vitro model for type II human lung cancer, A549 cells resist cytotoxicity via phosphorylation of proteins as demonstrated by many studies. However, to date, no large-scale phosphoproteome investigation has been conducted on A549. Here, we performed a systematical analysis of the phosphoproteome of A549 by using mass spectrometry (MS)-based strategies. This investigation led to the identification of 337 phosphorylation sites on 181 phosphoproteins. Among them, 67 phosphoproteins and 230 phosphorylation sites identified appeared to be novel with no previous characterization in lung cancer.</description>
+    </item>
+    
+    <item>
+      <title>GOSemSim an R package for measuring semantic similarity among GO terms and gene products</title>
+      <link>https://guangchuangyu.github.io/2010/05/gosemsim-an-r-package-for-measuring-semantic-similarity-among-go-terms-and-gene-products/</link>
+      <pubDate>Fri, 28 May 2010 05:06:26 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2010/05/gosemsim-an-r-package-for-measuring-semantic-similarity-among-go-terms-and-gene-products/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/20179076&#34;&gt;&lt;img src=&#34;http://bioinformatics.oxfordjournals.org/content/26/18.cover.gif&#34; alt=&#34;&#34; title=&#34;bioinfo&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;abstract&#34;&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;SUMMARY&lt;/strong&gt;: The semantic comparisons of Gene Ontology (GO) annotations
+provide quantitative ways to compute similarities between genes and gene
+groups, and have became important basis for many bioinformatics analysis
+approaches. GOSemSim is an R package for semantic similarity computation
+among GO terms, sets of GO terms, gene products and gene clusters. Four
+information content (IC)- and a graph-based methods are implemented in
+the GOSemSim package, multiple species including human, rat, mouse, fly
+and yeast are also supported. The functions provided by the GOSemSim
+offer flexibility for applications, and can be easily integrated into
+high-throughput analysis pipelines. AVAILABILITY: GOSemSim is released
+under the GNU General Public License within Bioconductor project, and
+freely available at
+&lt;a href=&#34;http://bioconductor.org/packages/2.6/bioc/html/GOSemSim.html&#34;&gt;http://bioconductor.org/packages/2.6/bioc/html/GOSemSim.html&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

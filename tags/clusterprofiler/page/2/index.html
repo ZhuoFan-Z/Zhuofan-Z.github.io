@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.89.4 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Guangchuang Yu">
+<meta name="keywords" content="">
+<meta name="description" content="Guangchuang&#39;s Blog">
+
+
+<meta property="og:description" content="Guangchuang&#39;s Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="clusterProfiler">
+<meta name="twitter:title" content="clusterProfiler">
+<meta property="og:url" content="https://guangchuangyu.github.io/tags/clusterprofiler/">
+<meta property="twitter:url" content="https://guangchuangyu.github.io/tags/clusterprofiler/">
+<meta property="og:site_name" content="Guangchuang Yu">
+<meta property="og:description" content="Guangchuang&#39;s Blog">
+<meta name="twitter:description" content="Guangchuang&#39;s Blog">
+<meta property="og:locale" content="en-us">
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@guangchuangyu">
+
+
+  <meta name="twitter:creator" content="@guangchuangyu">
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=640">
+
+
+    <title>clusterProfiler</title>
+
+    <link rel="icon" href="https://guangchuangyu.github.io/favicon.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://guangchuangyu.github.io/tags/clusterprofiler/index.xml">
+    
+
+    
+
+    <link rel="canonical" href="https://guangchuangyu.github.io/tags/clusterprofiler/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://guangchuangyu.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-77901140-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://guangchuangyu.github.io/">Guangchuang Yu</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://guangchuangyu.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://guangchuangyu.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Guangchuang Yu</h4>
+        
+          <h5 class="sidebar-profile-bio">Bioinformatics Professor @ SMU</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/GuangchuangYu" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/guangchuangyu" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/blog_images/biobabble.jpg">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-weixin"></i>
+      
+      <span class="sidebar-button-desc">WeChat</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://guangchuangyu.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="1"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://guangchuangyu.github.io/2018/04/dotplot-x-axis/">
+          dotplot支持使用formula指定x轴变量
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-04-08T19:06:16&#43;08:00">
+        
+  April 8, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/r">R</a>, 
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/visualization">Visualization</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <p>使用<code>barplot</code>来展示富集分析结果是很常用的，而<code>dotplot</code>比较<code>barplot</code>来说，多了一个点大小的信息，可以比<code>barplot</code>展示多一个信息，所以是比较推荐的，我之前已经写了《<a href="https://mp.weixin.qq.com/s/KzcnIH88d4E41Ybvr_76zA">dotplot展示富集分析结果</a>》和《<a href="https://mp.weixin.qq.com/s/JLon7oaddmTpsMzL03OJIA">dotplot for GSEA</a>》两篇文章，<code>dotplot</code>虽然简单，很多人会觉得会容易用<code>ggplot2</code>画出来，但其实有些细节，比如《<a href="https://mp.weixin.qq.com/s/VW4LvtQqXumrs6SMvwGgvQ">为什么画出来的点比指定的数目要多？</a>》，有些技巧，比如《<a href="https://mp.weixin.qq.com/s/JNIncz3W-59yjGk2ibJWUw">搞大你的点，让我们画真正的气泡图</a>》，是很多新手所不具备的，图虽然简单，但老司机的飚车技能也不可小看哦，所以我在《<a href="https://mp.weixin.qq.com/s/bloMPypAkQ3Ovlh406M-FQ">听说你也在画dotplot，但是我不服！</a>》的文后就说了一句话：</p>
+<blockquote>
+<p>clusterProfiler之所以好，因为真的考虑了很多细节！请放开那图，让clusterProfiler来画！</p>
+</blockquote>
+      
+      <p>
+        <a href="https://guangchuangyu.github.io/2018/04/dotplot-x-axis/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://guangchuangyu.github.io/2018/01/kegg-pathway-index/">
+          使用新姿势玩KEGG
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-01-11T15:21:00&#43;08:00">
+        
+  January 11, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/r">R</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <p>有小伙伴说他要用gage这个包，因为可以选择sigmet这个index，然后得到的结果只有signaling and metabolic pathways，而不会有他不关心的disease pathways。然而也有各种不爽，他最喜欢的还是clusterProfiler，但没办法只做某些pathways。</p>
+<p>我发现大家对clusterProfiler有各种误解，各种觉得没办法，我也很无语啊，明明我写了大量的文档，你们偏不看。clusterProfiler啥都可以做，你想做COG，domain这些没有内置支持的富集分析都可以的，因为clusterProfiler是通用的分析工具，啥都能做。</p>
+<p>说到gage的pathway index，这其实是他们对pathway有个分类，这个数据就在<a href="https://pathview.uncc.edu/data/khier.tsv">https://pathview.uncc.edu/data/khier.tsv</a>可以下载到，要支持他还不容易，但我不喜欢把别人的东西打包在自己的包里，所谓走别人的路，让别人无路可走，这可不是什么好主意。所以呢，我不会内置支持的，你们自己玩。</p>
+      
+      <p>
+        <a href="https://guangchuangyu.github.io/2018/01/kegg-pathway-index/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://guangchuangyu.github.io/2017/11/bioc-db-update/">
+          掐架的额外收获
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-11-12T00:21:00&#43;08:00">
+        
+  November 12, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/r">R</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <p>《<a href="http://mp.weixin.qq.com/s/miGQs6U1d3aHwcm7vgNCVw">你昨天才做的分析，可能是几年前的结果！</a>》这篇文章给大家敲了警钟，各种各样的web-server，要小心看有没有维护更新，有些是五年十年都不更新的，十分可怕。文章虽然讲的是富集分析，但其它分析工具你同样需要小心。</p>
+<p>当然并不是说独立的软件/软件包就一定靠谱，如果软件自己打包了数据，同样要注意数据是否有更新，而如果数据不打包在软件里，而是在线获取，你同样也该留一下心。这也是clusterProfiler做富集分析的优势所在，KEGG数据是在线的，永远是最新的，而GO的数据不在软件包里，而依赖于别的数据包，而这些数据包是社区维护的（相对而言，个人的维护比较难以为继），就确保了数据一直在有更新维护的。</p>
+<p>Bioconductor每半年发行一次，注释包同样每半年更新一次，所以你用clusterProfiler做GO分析，你用的GO数据库不会说超过半年没更新，而不像有些公司给出的结果，落后于这个世界不是一年两年这么简单。</p>
+      
+      <p>
+        <a href="https://guangchuangyu.github.io/2017/11/bioc-db-update/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://guangchuangyu.github.io/2017/11/kegg-gene-annotation/">
+          听说你的KEGG分析有大量的基因没注释
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-11-07T00:21:00&#43;08:00">
+        
+  November 7, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/r">R</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <p><a href="https://github.com/GuangchuangYu/clusterProfiler/issues/115">github上的问题</a>，问了两个问题，这是其中第二个：</p>
+<blockquote>
+<p>Meanwhile, when I fed the ENTREZID to enrichKEGG, it show me two unreasonable results:</p>
+</blockquote>
+<pre tabindex="0"><code>kegg_enrich = enrichKEGG(
+	gene = new_ids$ENTREZID,
+	organism = 'hsa',
+	keyType = 'ncbi-geneid',
+	pvalueCutoff = 0.05,
+	#pAdjustMethod = 'BH',
+	#qvalueCutoff = 0.2,
+	use_internal_data = FALSE
+)
+</code></pre><blockquote>
+</blockquote>
+<pre tabindex="0"><code>head(kegg_enrich)
+              ID                           Description GeneRatio  BgRatio       pvalue   p.adjust     qvalue
+hsa04380 hsa04380            Osteoclast differentiation    14/281 128/7299 0.0003817040 0.04767338 0.04508266
+hsa04070 hsa04070 Phosphatidylinositol signaling system    12/281  99/7299 0.0003875885 0.04767338 0.04508266
+</code></pre><blockquote>
+<p>I noted that only 281 genes are remained(there are 700+ genes in my list). In case that there is something wrong wtihin my gene list, I also tried my list with DAVID. It gave me reasonable results. So this is my second question, why enrichKEGG cannot recognize my geneids?</p>
+</blockquote>
+      
+      <p>
+        <a href="https://guangchuangyu.github.io/2017/11/kegg-gene-annotation/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://guangchuangyu.github.io/2017/10/enrichgo-more-conserve/">
+          enrichGO出不来结果？没结果也是正确的结果
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-10-09T13:31:00&#43;08:00">
+        
+  October 9, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/r">R</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <blockquote>
+<p>Dear Dr. Guangchuang Yu, I write to you regarding a doubt concerning the enrichGO function from Clustalprofiler package. I have been used this package before, but now I&rsquo;m using the same R script and I have an error message.</p>
+</blockquote>
+<blockquote>
+<p>This is the command I use:</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>go.bp &lt;- enrichGO(gene = gene.df$ENSEMBL, universe = universe.ENSEMBLID, keytype = &lsquo;ENSEMBL&rsquo;, OrgDb = org.Ce.eg.db, ont = &lsquo;BP&rsquo;, pAdjustMethod = &lsquo;BH&rsquo;, pvalueCutoff = 0.01, qvalueCutoff = 0.05, readable=T)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>and the error is the following one:</p>
+</blockquote>
+<blockquote>
+<p>No gene set have size &gt; 10 &hellip;
+&ndash;&gt; return NULL&hellip;</p>
+</blockquote>
+<blockquote>
+<p>My input list is attached to this email (101 genes in total). When I use this list in a web resource such as GOrilla it gives to me the proper GO terms.</p>
+</blockquote>
+<blockquote>
+<p>Thank you very much in advance. Best regards,</p>
+</blockquote>
+<blockquote>
+<p>María</p>
+</blockquote>
+<p>最近clusterProfiler用户的问题，这个问题还蛮普遍。这个我在《<a href="https://mp.weixin.qq.com/s?__biz=MzI5NjUyNzkxMg==&amp;mid=2247484414&amp;idx=1&amp;sn=096f758f04f875e25c333c345f530742&amp;chksm=ec43b2b9db343baf4e2a8640f48e7e72b3ef1b057c91c68905debb2bb54e5d2fdda62438628a#rd">why clusterProfiler fails</a>》中也有谈到，并不是能出结果就是好的。没有结果也是一种结果。</p>
+      
+      <p>
+        <a href="https://guangchuangyu.github.io/2017/10/enrichgo-more-conserve/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://guangchuangyu.github.io/2017/09/ko-id-conversion/">
+          ko数据库ID转换
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-09-27T19:11:00&#43;08:00">
+        
+  September 27, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/r">R</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <blockquote>
+<p>Since the clusterProfiler is a very useful tools for GO and Kegg annotation.At present I want to use it to enrich for kegg result while only have the KO number ,So I want to convert the KO number to the pathway function,Is there have any function or methods in the software can convert it?any help will be appreciated</p>
+</blockquote>
+<p><a href="https://github.com/GuangchuangYu/clusterProfiler/issues/99">这个问题</a>问说他想转KO到通路，首先这是一个常见的错误，很多人分不清<code>K</code>和<code>ko</code>，所以在我告诉他可以把<code>K number</code>转成<code>ko pathway</code>的时候，我先指出他的错误。</p>
+<p><code>ko</code> is actually pathway map. I think you are talking about <code>K</code> number mapping to <code>ko</code> pathway.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">bitr_kegg</span>(<span style="color:#e6db74">&#34;K00844&#34;</span>, <span style="color:#e6db74">&#34;kegg&#34;</span>, <span style="color:#e6db74">&#34;Path&#34;</span>, <span style="color:#e6db74">&#34;ko&#34;</span>)
+     kegg    Path
+<span style="color:#ae81ff">1</span>  K00844 ko00010
+<span style="color:#ae81ff">2</span>  K00844 ko00051
+<span style="color:#ae81ff">3</span>  K00844 ko00052
+<span style="color:#ae81ff">4</span>  K00844 ko00500
+<span style="color:#ae81ff">5</span>  K00844 ko00520
+<span style="color:#ae81ff">6</span>  K00844 ko00521
+<span style="color:#ae81ff">7</span>  K00844 ko00524
+<span style="color:#ae81ff">8</span>  K00844 ko01100
+<span style="color:#ae81ff">9</span>  K00844 ko01110
+<span style="color:#ae81ff">10</span> K00844 ko01120
+<span style="color:#ae81ff">11</span> K00844 ko01130
+<span style="color:#ae81ff">12</span> K00844 ko01200
+<span style="color:#ae81ff">13</span> K00844 ko04066
+<span style="color:#ae81ff">14</span> K00844 ko04910
+<span style="color:#ae81ff">15</span> K00844 ko04930
+<span style="color:#ae81ff">16</span> K00844 ko04973
+<span style="color:#ae81ff">17</span> K00844 ko05230
+</code></pre></div>
+      
+      <p>
+        <a href="https://guangchuangyu.github.io/2017/09/ko-id-conversion/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://guangchuangyu.github.io/2017/09/color-in-gseaplot/">
+          gseaplot自定义颜色
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-09-11T19:11:00&#43;08:00">
+        
+  September 11, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://guangchuangyu.github.io/categories/r">R</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <p>《<a href="https://mp.weixin.qq.com/s?__biz=MzI5NjUyNzkxMg==&amp;mid=2247484730&amp;idx=1&amp;sn=48b8c24b6cfb6162f8fb3f3861ddfe1b&amp;chksm=ec43b47ddb343d6b37581fa81b0bf11b5141a446333b1b961ef1ad4f80da4c4732d7bc3432c2#rd">听说你有RNAseq数据却不知道怎么跑GSEA</a>》一文有小伙伴问封面的gseaplot能否换颜色，于是我就随手支持了。</p>
+      
+      <p>
+        <a href="https://guangchuangyu.github.io/2017/09/color-in-gseaplot/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+            
+  <div class="pagination-bar">
+    <ul class="pagination">
+      
+        
+          <li class="pagination-prev">
+            <a class="btn btn--default btn--small" href="https://guangchuangyu.github.io/tags/clusterprofiler/">
+              <i class="fa fa-angle-left text-base icon-mr"></i>
+              <span>NEWER POSTS</span>
+            </a>
+          </li>
+        
+        
+          <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="https://guangchuangyu.github.io/tags/clusterprofiler/page/3/">
+              <span>OLDER POSTS</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+      
+      <li class="pagination-number">page 2 of 7</li>
+    </ul>
+  </div>
+
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Guangchuang Yu. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/7466436733e8691a63a9f7af4651e014?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Guangchuang Yu</h4>
+    
+      <div id="about-card-bio">Bioinformatics Professor @ SMU</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Bioinformatics Professor
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Guangzhou
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://guangchuangyu.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://guangchuangyu.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+
+    
+  </body>
+</html>
+

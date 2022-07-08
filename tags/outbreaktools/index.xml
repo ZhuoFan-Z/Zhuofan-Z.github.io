@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OutbreakTools on Guangchuang Yu</title>
+    <link>https://guangchuangyu.github.io/tags/outbreaktools/</link>
+    <description>Recent content in OutbreakTools on Guangchuang Yu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 19 Sep 2016 20:10:48 +0800</lastBuildDate><atom:link href="https://guangchuangyu.github.io/tags/outbreaktools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ggtree for outbreak data</title>
+      <link>https://guangchuangyu.github.io/2016/09/ggtree-for-outbreak-data/</link>
+      <pubDate>Mon, 19 Sep 2016 20:10:48 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2016/09/ggtree-for-outbreak-data/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/package=OutbreakTools&#34;&gt;OutbreakTools&lt;/a&gt; implements basic tools for the analysis of Disease Outbreaks.&lt;/p&gt;
+&lt;p&gt;It defines &lt;code&gt;S4&lt;/code&gt; class &lt;code&gt;obkData&lt;/code&gt; to store case-base outbreak data. It also provides a function, &lt;code&gt;plotggphy&lt;/code&gt;, to visualize such data on the phylogenetic tree.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;library(OutbreakTools)
+data(FluH1N1pdm2009)
+attach(FluH1N1pdm2009)
+
+
+x &amp;lt;- new(&amp;quot;obkData&amp;quot;, individuals = individuals, dna = FluH1N1pdm2009$dna,
+         dna.individualID = samples$individualID, dna.date = samples$date,
+         trees = FluH1N1pdm2009$trees)
+
+plotggphy(x, ladderize = TRUE, branch.unit = &amp;quot;year&amp;quot;,
+          tip.color = &amp;quot;location&amp;quot;, tip.size = 3, tip.alpha = 0.75)
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

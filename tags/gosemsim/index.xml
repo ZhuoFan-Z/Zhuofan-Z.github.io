@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GOSemSim on Guangchuang Yu</title>
+    <link>https://guangchuangyu.github.io/tags/gosemsim/</link>
+    <description>Recent content in GOSemSim on Guangchuang Yu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jan 2018 10:57:15 +0800</lastBuildDate><atom:link href="https://guangchuangyu.github.io/tags/gosemsim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基因或蛋白之间，谁是谁的死党？</title>
+      <link>https://guangchuangyu.github.io/2018/01/using-gosemsim-to-rank-proteins/</link>
+      <pubDate>Tue, 02 Jan 2018 10:57:15 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2018/01/using-gosemsim-to-rank-proteins/</guid>
+      <description>&lt;p&gt;很多人会有这样一个问题，差异基因一大堆，到底该选那个来做下游的实验验证？这个问题，说白了是个基因「重要性」的打分问题，你做差异基因分析的时候，就可以看做是个打分的过程，p值是你的统计量，p值越小，打分越高，然而所有的打分都是辅助帮我们进一步缩小范围而已，并不是打分越高就越「重要」，如果打分可以说明一切，那么我们就不需要实验验证了。所以像差异基因分析，我们一般是卡p &amp;lt; 0.01或p &amp;lt; 0.05来过滤，把p值小的基因留下来，但我们并不能说p值最小的基因就是最重要的。&lt;/p&gt;
+&lt;p&gt;回到开头的问题，我们要的是对打分（差异分析）结果再利用别的手段，再一次进行打分，进一步缩小范围。比如你可以通过构建相互作用网络，通过分析betweenness，找hub分子。当然打分不一定是要基于基因/蛋白水平，也可以是通路水平，比如你可以用&lt;a href=&#34;http://mp.weixin.qq.com/s/ScwaofLd_ybfECYjL1dGow&#34;&gt;clusterProfiler进行富集分析&lt;/a&gt;，然后把你的目标限定在某个/些通路上。反正就是各种手段一起上，直到你能够限定到少量几个基因上，对于做实验验证的人来说，再好不过。&lt;/p&gt;
+&lt;p&gt;上一周发表的《&lt;a href=&#34;https://mp.weixin.qq.com/s/FTzgf1JHXAhDta2u-cDksQ&#34;&gt;GOSemSim: GO语义相似性度量&lt;/a&gt;》，我记录了GOSemSim包被应用于各种各样的场景，它当然也可以拿来给基因/蛋白质打分。比如你用clusterProfiler分析后，就想验证某一通路，但不知道要选这个通路的哪个基因来做为切入点。&lt;/p&gt;
+&lt;p&gt;首先问一个问题，同一通路上的基因功能相似性高吗？大家可能会潜意识地认为应该比较高，这不一定的，基因/蛋白有直接或间接的相互作用，但这种相互作用可能只是「月上柳梢头，人约黄昏后」而已，可能偶尔才来一发，这种属于约会型。一个基因/蛋白通常会参与到多条不同的通路中，如果两个蛋白在不同的通路中经常一起出现，那么它们的功能相似性才会高，这种属于基友/闺蜜的死党型。今天就来讲一讲到底谁和谁在约会，谁和谁又是死党。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Y Han, &lt;strong&gt;G Yu&lt;/strong&gt;, H Sarioglu, A Caballero-Martinez, F Schlott, M Ueffing, H Haase, C Peschel, AM Krackhardt. &lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S1874391912007567&#34;&gt;Proteomic investigation of the interactome of FMNL1 in hematopoietic cells unveils a role in calcium-dependent membrane plasticity&lt;/a&gt;. &lt;strong&gt;&lt;em&gt;Journal of Proteomics&lt;/em&gt;&lt;/strong&gt;. 2013, 78:72-82.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这篇文章是和慕尼黑工业大学（Technische Universität München）合作的一篇文章，使用了Co-IP去拉蛋白，再用LC-MS/MS进行鉴定，Co-IP是鉴定蛋白相互作用的常用手段，当然拉下来的蛋白不见得就是有真实的相互作用，它甚至于可能只是背景污染而已，所以我们需要对拉下来的蛋白进行打分，找出一些可能性比较高的候选蛋白进一步进行验证。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>虐狗节来看一下这个裤衩都不要的故事</title>
+      <link>https://guangchuangyu.github.io/2017/11/bmc-protects-paper-of-plagiarism/</link>
+      <pubDate>Sat, 11 Nov 2017 20:00:43 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2017/11/bmc-protects-paper-of-plagiarism/</guid>
+      <description>&lt;p&gt;![](&lt;a href=&#34;http://guangchuangyu.github.io/blog_images/R/ppipre/Screenshot&#34;&gt;http://guangchuangyu.github.io/blog_images/R/ppipre/Screenshot&lt;/a&gt; 2017-11-10 00.10.22.png)&lt;/p&gt;
+&lt;p&gt;Scientific Report上有一篇文章是抄袭的，然而杂志最终决定不撤稿，而被抄的人是Johns Hopkins的，于是jh的人全都要离开Scientific Report的编委。我也被人抄了不撤稿，然而我人微言轻，不单被编辑部欺负，还要被我们国内生信界的网红欺负。&lt;/p&gt;
+&lt;p&gt;SR与jh的事情，我和BMC的故事，是相似的，我们可以想像这样的学术界惨剧比想像中的要多。学术圈，真是有时候得呵呵哒。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>BMC journal protects paper of plagiarism</title>
+      <link>https://guangchuangyu.github.io/2017/11/bmc-journal-protect-paper-of-plagiarism/</link>
+      <pubDate>Thu, 09 Nov 2017 21:51:43 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2017/11/bmc-journal-protect-paper-of-plagiarism/</guid>
+      <description>&lt;p&gt;My friend who doing his PhD study at Johns Hopkins just send me the link about &lt;a href=&#34;https://retractionwatch.com/2017/11/07/17-johns-hopkins-researchers-resign-protest-ed-board-nature-journal/&#34;&gt;a SR paper of plagiarism&lt;/a&gt;. I have very similar experence of &lt;a href=&#34;https://bmcsystbiol.biomedcentral.com/articles/10.1186/1752-0509-7-S2-S8&#34;&gt;a paper published on BMC Systems Biology&lt;/a&gt;, which plagiarized &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/pubmed/20179076&#34;&gt;my work&lt;/a&gt; and the editor just decided to publish an erratum.&lt;/p&gt;
+&lt;p&gt;Deng &lt;em&gt;etc.&lt;/em&gt; published an R package, ppiPre, that copied source code of my package, GOSemSim, and pretended that they developed these algorithms by themselves in their paper.&lt;/p&gt;
+&lt;p&gt;Here is the screenshot of the source code (left: ppiPre, right: GOSemSim).&lt;/p&gt;
+&lt;p&gt;![](&lt;a href=&#34;https://guangchuangyu.github.io/blog_images/screenshots/Screenshot&#34;&gt;https://guangchuangyu.github.io/blog_images/screenshots/Screenshot&lt;/a&gt; 2017-07-17 19.43.51.png)&lt;/p&gt;
+&lt;p&gt;You can find out more on &lt;a href=&#34;http://guangchuangyu.github.io/2014/11/proper-use-of-gosemsim/&#34;&gt;my blog post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As a developer of several open source software, I am glad that someone find my source code useful and happy if someone use my source code to make something better. But I am not happy if someone copies my source code by removing author information and changing function names to pretend the code was developed by himself. The situation is even worse in academic. Taking someone else&amp;rsquo;s works and passing it off as one&amp;rsquo;s own is definitely plagiarism and not allow in academic.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>关于重用代码与文章抄袭</title>
+      <link>https://guangchuangyu.github.io/2017/08/source-code-reuse/</link>
+      <pubDate>Sun, 20 Aug 2017 20:27:00 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2017/08/source-code-reuse/</guid>
+      <description>&lt;p&gt;《&lt;a href=&#34;https://mp.weixin.qq.com/s?__biz=MzI5NjUyNzkxMg==&amp;amp;mid=2247484733&amp;amp;idx=1&amp;amp;sn=b43739e02ef7e7892f196aa51a1c2e59&amp;amp;chksm=ec43b47adb343d6c98b240a0dfed9abe1ab46e230535a44f2b47bf69cc7b45520f7c7fd38231#rd&#34;&gt;大学教授力挺抄袭，强行洗地到裤衩都不要了，到底图什么？&lt;/a&gt;》这篇文章发出来之后，引起大家讨论，有一些小伙伴截了屏给我看。所以我想有必要再讲几句，我这篇文章写&lt;strong&gt;两个方面&lt;/strong&gt;，一方面是重用代码，一方面是文章抄袭，这两方面可以是不相关的，这里的文章抄袭并不特指你抄了代码。&lt;/p&gt;
+&lt;p&gt;X教授《&lt;a href=&#34;http://mp.weixin.qq.com/s?__biz=MzI5NjUyNzkxMg==&amp;amp;mid=2247484733&amp;amp;idx=2&amp;amp;sn=b6c3a81f38c0f60433e8ccd721a7ca3b&amp;amp;chksm=ec43b47adb343d6c0bee4ae222af03353329173b9ae87c588d6bb19f95619dc46b829d0af1b6#rd&#34;&gt;如何姿势正确的使用他人代码？&lt;/a&gt;》，总结起来两个点，一是开源代码随便用，二是文章有引用/致谢就OK。这两个点都是错误的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>我像是一颗棋子，进退任由你决定</title>
+      <link>https://guangchuangyu.github.io/2017/07/un-fucking-believable/</link>
+      <pubDate>Fri, 21 Jul 2017 21:51:43 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2017/07/un-fucking-believable/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;we’re talking about people who already are skating on the ethical edge (as scientists, we should always respond to serious criticism; if we don’t, that’s bordering on ethical violation already) &amp;ndash; &lt;a href=&#34;http://www.stat.columbia.edu/~gelman/&#34;&gt;Andrew Gelman&lt;/a&gt;对此事的评论&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我原以为邓岳是个学生，我的本意是要给他一个教训，制止这种行为，我不出来给他这个教训，早晚他也会为自己的投机付出代价，而且如果以后出现多次抄袭，直接会导致无法继续在学术界生存。后来我发现他还是个讲师，我觉得更不应该了，编辑部必须要对这件事做出处罚。这就是我的本意，让邓岳认识到错误，并为此付出应有的代价。&lt;/p&gt;
+&lt;h2 id=&#34;搞得我像祥林嫂一样到处找人说&#34;&gt;搞得我像祥林嫂一样到处找人说&lt;/h2&gt;
+&lt;p&gt;然而&lt;a href=&#34;https://mp.weixin.qq.com/s?__biz=MzI5NjUyNzkxMg==&amp;amp;mid=2247484618&amp;amp;idx=1&amp;amp;sn=bcb696bba156bc433cae638a461bdcdb&amp;amp;chksm=ec43b58ddb343c9b546cf7c4b3d032da610ce89d0b8c1778cb723cf74cdfa11c11bbedf3557a#rd&#34;&gt;编辑一直不做为&lt;/a&gt;，就逼得我只能借助于舆论，我本无意于去网上传播这件事，我写的博客，都是针对编辑部，最后我对编辑提议的处理方式表达不满之后，编辑就&lt;strong&gt;消失了&lt;/strong&gt;，再也不回应邮件。我只能再写博客，再发动舆论，联系之前高调出来说撤稿了43篇文章的那些编辑，推特上也骚扰他们。微博上也AT西电官方微博，求转发之类的。虽然我没有想去闹大事情（尼马我也不想花时间扯这些蛋啊），但BMC就是逼着我跟他斗，而事情闹越大，对抄袭的人来说，越是不利，搞不好学术界就不用混了。谁都不傻，所以终于坐不住给我写信。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://guangchuangyu.github.io/blog_images/Bioconductor/GOSemSim/2017-07-20-001828_1280x800_scrot.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其中说到“1、2月份和您邮件沟通”，只是说了按照CRAN policy改了代码，并把我列为作者，而后面我回应把我名字从软件包作者中去掉而已。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;他的邮件大概讲了和编辑并无操作，软件包已经按要求更新，犯错是源自于无知。&lt;/p&gt;
+&lt;h2 id=&#34;这事最后怎么处理&#34;&gt;这事最后怎么处理？&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>辣眼睛，一篇抄袭引发的系列血案！</title>
+      <link>https://guangchuangyu.github.io/2017/07/plagiarism-chain/</link>
+      <pubDate>Thu, 20 Jul 2017 21:51:43 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2017/07/plagiarism-chain/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;50%的利润,它就铤而走险；&lt;/p&gt;
+&lt;p&gt;100%的利润,它就敢践踏一切人间法律；&lt;/p&gt;
+&lt;p&gt;300%的利润,它就敢犯任何罪行,甚至绞首的危险.&lt;/p&gt;
+&lt;p&gt;&amp;ndash;马克思 《资本论》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://guangchuangyu.github.io/blog_images/R/hposim_dosim/hposim_paper.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;ppiPre抄袭GOSemSim，然后我发现他还发了一个叫HPOSim的R包，又是语义相似性度量，我的第一反应是必须还抄我的，他要是有能力写出来，就不会抄GOSemSim了。然而我看了一下代码，确实不是抄我的！&lt;strong&gt;这他妈就奇了怪了!&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;必须还是抄的&#34;&gt;必须还是抄的！&lt;/h2&gt;
+&lt;p&gt;做语义相似性度量也就那么几个包，我看了一遍之后，发现&lt;strong&gt;HPOSim&lt;/strong&gt;抄了&lt;strong&gt;DOSim&lt;/strong&gt;，你妹啊，用心良苦，同样/相似的东西换不同的包来抄！抄袭惯犯了，事实证明，走捷径的人，是不可能好好走路的，一旦尝到了甜头，必然是铤而走险！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;以下两个截屏，大家感受一下，左边是HPOSim，右边是DOSim：&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Editor你的良心不会痛吗？</title>
+      <link>https://guangchuangyu.github.io/2017/07/bmc_plagiarism_2/</link>
+      <pubDate>Wed, 19 Jul 2017 21:51:43 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2017/07/bmc_plagiarism_2/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;抄袭的是&lt;strong&gt;西安电子科技大学&lt;/strong&gt;的讲师，靠着两三篇抄袭的文章，已经是副教授了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这种抄袭的事情就应该暴光，这个事件中，更可恶的是BMC，BMC这种保护抄袭的行为更应该暴光，大家不要再给BMC送钱了，还不如发PLoS One。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;公众号有人评论说：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://guangchuangyu.github.io/blog_images/Bioconductor/GOSemSim/WechatIMG2.jpeg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;这竟然也被捕捉到了，确实他在2012年的时候，就在copy我的代码，然后打R包的时候，还请教了我：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://guangchuangyu.github.io/blog_images/Bioconductor/GOSemSim/ppiPre_dengyue.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;抄了我的代码之后厚颜无耻地感谢我说学了很多东西他的良心真的不会痛吗&#34;&gt;抄了我的代码，之后厚颜无耻地感谢我说学了很多东西，他的良心真的不会痛吗？&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://media.giphy.com/media/EvsmQokxE8wi4/giphy.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>学术期刊的学术不端，你见过吗？</title>
+      <link>https://guangchuangyu.github.io/2017/07/bmc_plagiarism_1/</link>
+      <pubDate>Tue, 18 Jul 2017 21:51:43 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2017/07/bmc_plagiarism_1/</guid>
+      <description>&lt;h2 id=&#34;编辑部的恶才是最大的恶&#34;&gt;编辑部的恶才是最大的恶！&lt;/h2&gt;
+&lt;p&gt;大家是否还记得2015年BioMed Central高调地撤稿了43篇文章，站在道德制高点对审稿过程进行了指责，吐了学术不端一脸口水？&lt;/p&gt;
+&lt;p&gt;![](&lt;a href=&#34;https://guangchuangyu.github.io/blog_images/screenshots/Screenshot&#34;&gt;https://guangchuangyu.github.io/blog_images/screenshots/Screenshot&lt;/a&gt; 2017-07-17 19.34.25.png)&lt;/p&gt;
+&lt;p&gt;就在这个时候，我写信去&lt;strong&gt;BMC Systems Biology&lt;/strong&gt;告别人抄袭，编辑部信誓旦旦，他们对这种事情是非常认真对待的，然而接下来的剧情却反转了，在我证据甩他们一脸的时候，他们拖着不处理，拖多久呢，&lt;strong&gt;超过1年！&lt;strong&gt;一直在给抄袭者洗地，最好在没有告知我的情况下，静悄悄地出了个所谓的&lt;/strong&gt;erratum&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;erratum是什么？字典里这样写：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;erratum |ɛˈrɑːtəm|
+noun (pl.errata |ɛˈrɑːtə| )
+an error in printing or writing.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我告的是抄袭，plagiarism:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;plagiarism |ˈpleɪdʒərɪz(ə)m|
+noun [ mass noun ]
+the practice of taking someone else&#39;s work or ideas and passing them off as one&#39;s own. 
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;结果plagiarism到了编辑部那里变成了erratum&#34;&gt;结果&lt;strong&gt;plagiarism&lt;/strong&gt;到了编辑部那里变成了&lt;strong&gt;erratum&lt;/strong&gt;.&lt;/h3&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Bioc 3.5] NEWS of my BioC packages</title>
+      <link>https://guangchuangyu.github.io/2017/05/bioc-3.5-news-of-my-bioc-packages/</link>
+      <pubDate>Fri, 19 May 2017 18:13:57 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2017/05/bioc-3.5-news-of-my-bioc-packages/</guid>
+      <description>&lt;p&gt;I have 8 packages published within the &lt;code&gt;Bioconductor&lt;/code&gt; project.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/ChIPseeker&#34;&gt;ChIPseeker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/clusterProfiler&#34;&gt;clusterProfiler&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/DOSE&#34;&gt;DOSE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/ggtree&#34;&gt;ggtree&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/GOSemSim&#34;&gt;GOSemSim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/meshes&#34;&gt;meshes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/ReactomePA&#34;&gt;ReactomePA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/treeio&#34;&gt;treeio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A new package &lt;a href=&#34;http://guangchuangyu.github.io/treeio&#34;&gt;treeio&lt;/a&gt; was included in BioC 3.5 release.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>跨物种计算基因相似性</title>
+      <link>https://guangchuangyu.github.io/2016/12/%E8%B7%A8%E7%89%A9%E7%A7%8D%E8%AE%A1%E7%AE%97%E5%9F%BA%E5%9B%A0%E7%9B%B8%E4%BC%BC%E6%80%A7/</link>
+      <pubDate>Wed, 07 Dec 2016 00:53:00 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2016/12/%E8%B7%A8%E7%89%A9%E7%A7%8D%E8%AE%A1%E7%AE%97%E5%9F%BA%E5%9B%A0%E7%9B%B8%E4%BC%BC%E6%80%A7/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Hi,&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I know this question has been asked before a long time ago and I don&amp;rsquo;t see an answer of that question in the mailing list or in the vignette of GOsemsim package. So I was wondering what is the easiest possible way of calculating GO semantic similarity value for orthologus gene pairs between two species using the above R package or any other package you know of. I am not doing this for less annotated species I need to calculate that for orthologus genes between Human and Mouse (both of which are well annotated IMHO). So I would much appreciate it if anyone who has already done this before can point me to a resource which already has pre-calculated semantic similarity values for Mouse and Human orthologues or has inbuilt code to do that.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Thanks &amp;amp; regards&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这是Bioconductor support site上的&lt;a href=&#34;https://support.bioconductor.org/p/90063/&#34;&gt;问题&lt;/a&gt;，问的是他想要计算人类和老鼠的直系同源基因通过GO注释来计算语义相似性，问GOSemSim是否支持，这个答案是yes and no。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Bioc 34] NEWS of my BioC packages</title>
+      <link>https://guangchuangyu.github.io/2016/10/bioc-34-news-of-my-bioc-packages/</link>
+      <pubDate>Wed, 19 Oct 2016 18:13:57 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2016/10/bioc-34-news-of-my-bioc-packages/</guid>
+      <description>&lt;p&gt;I have 7 packages published within the &lt;code&gt;Bioconductor&lt;/code&gt; project.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/ChIPseeker&#34;&gt;ChIPseeker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/clusterProfiler&#34;&gt;clusterProfiler&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/DOSE&#34;&gt;DOSE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/ggtree&#34;&gt;ggtree&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/GOSemSim&#34;&gt;GOSemSim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/meshes&#34;&gt;meshes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/ReactomePA&#34;&gt;ReactomePA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A new package &lt;a href=&#34;http://guangchuangyu.github.io/meshes&#34;&gt;meshes&lt;/a&gt; was included in BioC 3.4 release.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Evolution of my BioC packages</title>
+      <link>https://guangchuangyu.github.io/2016/07/evolution-of-my-bioc-packages/</link>
+      <pubDate>Wed, 13 Jul 2016 21:06:59 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2016/07/evolution-of-my-bioc-packages/</guid>
+      <description>&lt;p&gt;发现Youtube上有一个视频叫&lt;a href=&#34;https://www.youtube.com/watch?v=MYTblx-5Yog&#34;&gt;Evolution of clusterProfiler&lt;/a&gt;, 是Landon Wilkins用&lt;a href=&#34;http://gource.io/&#34;&gt;Gource&lt;/a&gt;做的。于是我也来玩一下，看一下自己这几年码代码的过程。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Bioc 33] NEWS of my BioC packages</title>
+      <link>https://guangchuangyu.github.io/2016/05/bioc-33-news-of-my-bioc-packages/</link>
+      <pubDate>Thu, 05 May 2016 20:13:57 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2016/05/bioc-33-news-of-my-bioc-packages/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Today is my birthday and it happened to be the release day of Bioconductor 3.3. It&amp;rsquo;s again the time to reflect what I&amp;rsquo;ve done in the past year.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/ChIPseeker&#34;&gt;ChIPseeker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/clusterProfiler&#34;&gt;clusterProfiler&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/DOSE&#34;&gt;DOSE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/ggtree&#34;&gt;ggtree&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/GOSemSim&#34;&gt;GOSemSim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://guangchuangyu.github.io/ReactomePA&#34;&gt;ReactomePA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Bioc 32] NEWS of my BioC packages</title>
+      <link>https://guangchuangyu.github.io/2015/10/bioc-32-news-of-my-bioc-packages/</link>
+      <pubDate>Thu, 15 Oct 2015 16:13:57 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2015/10/bioc-32-news-of-my-bioc-packages/</guid>
+      <description>&lt;p&gt;In BioC 3.2 release, all my packages including
+&lt;a href=&#34;http://www.bioconductor.org/packages/GOSemSim&#34;&gt;GOSemSim&lt;/a&gt;,
+&lt;a href=&#34;http://www.bioconductor.org/packages/clusterProfiler&#34;&gt;clusterProfiler&lt;/a&gt;,
+&lt;a href=&#34;http://www.bioconductor.org/packages/release/bioc/html/DOSE.html&#34;&gt;DOSE&lt;/a&gt;,
+&lt;a href=&#34;http://www.bioconductor.org/packages/release/bioc/html/ReactomePA.html&#34;&gt;ReactomePA&lt;/a&gt;,
+and &lt;a href=&#34;http://www.bioconductor.org/packages/ChIPseeker&#34;&gt;ChIPseeker&lt;/a&gt; switch
+from Sweave to R Markdown for package vignettes.&lt;/p&gt;
+&lt;h3 id=&#34;gosemsim&#34;&gt;GOSemSim&lt;/h3&gt;
+&lt;p&gt;To make it consistent between
+&lt;a href=&#34;http://www.bioconductor.org/packages/GOSemSim&#34;&gt;GOSemSim&lt;/a&gt; and
+&lt;a href=&#34;http://www.bioconductor.org/packages/clusterProfiler&#34;&gt;clusterProfiler&lt;/a&gt;,
+&amp;lsquo;worm&amp;rsquo; was deprecated and instead we should use &amp;lsquo;celegans&amp;rsquo;. As usual,
+information content data was updated.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>BMC favors source code plagiarism</title>
+      <link>https://guangchuangyu.github.io/2015/05/bmc-favors-source-code-plagiarism/</link>
+      <pubDate>Wed, 27 May 2015 13:38:44 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2015/05/bmc-favors-source-code-plagiarism/</guid>
+      <description>&lt;p&gt;I found source code plagiarism a year ago and reported this case to &lt;a href=&#34;http://www.biomedcentral.com/bmcsystbiol&#34;&gt;BMC Systems Biology&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;![](&lt;a href=&#34;http://guangchuangyu.github.io/blog_images/2015/plagiarism/Screenshot&#34;&gt;http://guangchuangyu.github.io/blog_images/2015/plagiarism/Screenshot&lt;/a&gt; 2015-05-27 19.56.58.png)&lt;/p&gt;
+&lt;p&gt;I listed source code of many functions that are exactly copied from
+&lt;a href=&#34;http://www.bioconductor.org/packages/release/bioc/html/GOSemSim.html&#34;&gt;GOSemSim&lt;/a&gt;
+with only function name changed in my email. The detail of source code
+plagiarism can also be found at &lt;strong&gt;&lt;a href=&#34;http://guangchuangyu.github.io/2014/11/proper-use-of-gosemsim/&#34;&gt;Proper use of
+GOSemSim&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>BMC Favor Plagiarism</title>
+      <link>https://guangchuangyu.github.io/2015/05/bmc-favor-plagiarism/</link>
+      <pubDate>Sun, 17 May 2015 21:51:43 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2015/05/bmc-favor-plagiarism/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://cran.r-project.org/web/packages/ppiPre/index.html&#34;&gt;ppiPre&lt;/a&gt;抄袭了&lt;a href=&#34;https://github.com/GuangchuangYu/GOSemSim&#34;&gt;GOSemSim&lt;/a&gt;的代码，证据当然非常充分，比对一下代码就知道了，我在&lt;a href=&#34;http://guangchuangyu.github.io/2014/11/proper-use-of-gosemsim/&#34;&gt;Proper use of GOSemSim&lt;/a&gt;一文中，做出了一些比较，另外也可以参考&lt;a href=&#34;https://github.com/cran/ppiPre/commit/c267700ca09a599dab77326959a0aa6a2980ceed&#34;&gt;github&lt;/a&gt;页面，github记录了ppiPre被暴光抄袭之后所做的修改。
+从我给BMC Systems Biology的编辑反馈这件事开始，在这铁板钉钉的事实面前，编辑拖了整整一年，而这一年时间过去了，ppiPre仍没有被编辑部受理。从最早反应这件事情，编辑信誓旦旦说他们很重视这种事情，到后面对我的邮件视而不见，我愿意相信编辑部处理这些事情，需要时间，他们有自己的规则，但一年的时间，不回邮件，冷处理以淡化此事，这绝对不是应该有的规则。 在编辑一直无视我的情况下，我写出了&lt;a href=&#34;http://guangchuangyu.github.io/2014/11/proper-use-of-gosemsim/&#34;&gt;Proper use of GOSemSim&lt;/a&gt;一文，列举了一些一模一样的代码，并告知CRAN，当ppiPre被CRAN移除时，我写信给编辑，这时候，编辑告诉我说他们准备要去联系作者了，这时候已经过去半年了，是的！你没有看错，半年过去了，编辑说他们还没去联系作者！我是不相信的。必然是联系了之后，有某些不为人知的原因，所以编辑态度反常，对抄袭这种打鸡血的事情，不断在打太极。&lt;/p&gt;
+&lt;p&gt;再过二个月，ppiPre的作者&lt;a href=&#34;http://web.xidian.edu.cn/dengyue/&#34;&gt;邓岳&lt;/a&gt;给我写了信：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>using GOSemSim to rank proteins obtained by co-IP</title>
+      <link>https://guangchuangyu.github.io/2015/05/using-gosemsim-to-rank-proteins-obtained-by-co-ip/</link>
+      <pubDate>Mon, 04 May 2015 10:57:15 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2015/05/using-gosemsim-to-rank-proteins-obtained-by-co-ip/</guid>
+      <description>&lt;p&gt;Co-IP is usually used to identified interactions among specific
+proteins. It is widely used in detecting protein complex. Unfortunately,
+an identified protein may not be an interactor, and sometimes can be a
+background contaminant. Ranking proteins can help us to focus a study on
+a few high quality candidates for subsequent interaction investigation.
+My R package &lt;a href=&#34;https://github.com/GuangchuangYu/GOSemSim&#34;&gt;GOSemSim&lt;/a&gt; has
+been used in many studies to investigate protein protein interaction,
+see &lt;a href=&#34;http://pubs.rsc.org/en/content/articlehtml/2014/mb/c3mb70486f&#34;&gt;1&lt;/a&gt;,
+&lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S1874391915000937&#34;&gt;2&lt;/a&gt;,
+&lt;a href=&#34;http://www.sciencedirect.com/science/article/pii/S1476927115000493&#34;&gt;3&lt;/a&gt;,
+&lt;a href=&#34;http://www.mcponline.org/content/13/5/1318.short&#34;&gt;4&lt;/a&gt; and
+&lt;a href=&#34;http://scholar.google.com/scholar?oi=bibs&amp;amp;hl=en&amp;amp;cites=9484177541993722322,16048119560581430155,18126401808149291947&#34;&gt;more&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Bioc 31] NEWS of my BioC packages</title>
+      <link>https://guangchuangyu.github.io/2015/04/bioc-31-news-of-my-bioc-packages/</link>
+      <pubDate>Mon, 20 Apr 2015 11:44:01 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2015/04/bioc-31-news-of-my-bioc-packages/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://guangchuangyu.github.io/blog_images/2015/Screenshot%202015-03-12%2019.05.54.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;gosemsim&#34;&gt;GOSemSim&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;www.bioconductor.org/packages/release/bioc/html/GOSemSim.html&#34;&gt;GOSemSim&lt;/a&gt;
+was first implemented in &lt;a href=&#34;http://guangchuangyu.github.io/2008/08/gosemsim/&#34;&gt;2008&lt;/a&gt;
+and published in
+&lt;a href=&#34;http://bioinformatics.oxfordjournals.org/content/26/7/976&#34;&gt;Bioinformatics&lt;/a&gt;
+in 2010. It&amp;rsquo;s now a mature package with no bugs found in the past half
+year. Only vignette and Information content data were updated.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://guangchuangyu.github.io/blog_images/Bioconductor/GOSemSim/gosemsim_stats.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>proper use of GOSemSim</title>
+      <link>https://guangchuangyu.github.io/2014/11/proper-use-of-gosemsim/</link>
+      <pubDate>Sun, 23 Nov 2014 02:27:23 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2014/11/proper-use-of-gosemsim/</guid>
+      <description>&lt;p&gt;One day, I am looking for R packages that can analyze PPI and after
+searching, I found the
+&lt;a href=&#34;http://cran.r-project.org/web/packages/ppiPre/index.html&#34;&gt;ppiPre&lt;/a&gt;
+package in CRAN.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://guangchuangyu.github.io/blog_images/2014/11/2014-11-22-215959_895x256_scrot.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>又虚长了一岁</title>
+      <link>https://guangchuangyu.github.io/2011/05/birthday/</link>
+      <pubDate>Thu, 05 May 2011 05:54:16 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2011/05/birthday/</guid>
+      <description>&lt;p&gt;08年的时候，结合mRNA芯片和miRNA芯片数据，做靶标预测。某一天晚上，没睡着，想到可以通过靶标来计算miRNA的相似性，正好可以利用当时写的软件包&lt;a href=&#34;http://bioconductor.org/packages/release/bioc/html/GOSemSim.html&#34;&gt;GOSemSim&lt;/a&gt;来计算。&lt;/p&gt;
+&lt;p&gt;09年看到BMC Systems Biology上有一篇文章，&lt;a href=&#34;http://www.biomedcentral.com/1752-0509/3/65&#34;&gt;利用miRNA所调控的蛋白相互作用网络对miRNA进行聚类&lt;/a&gt;，当时我就觉得，利用靶标来计算，这想法不发出去，它就不再新鲜了。&lt;/p&gt;
+&lt;p&gt;记得Watson说过，科研有三大动力，其一是赶在竞争对手之前，其二用于泡妞，其三，忘记了-,-&lt;/p&gt;
+&lt;p&gt;第三点和Watson对不上，所以记不住，第一是DNA双螺旋时，谁看到那个X射线衍射结果，谁拿炸药奖，Linus
+Pauling当时是他们最大的竞争对手。第二点是Watson 39岁时，娶了自己的学生，19岁。&lt;/p&gt;
+&lt;p&gt;08年的时候，算好了相似性矩阵，这事就一直掠着。老板压着我第一篇文章没发，这是最主要的原因，当然自己当时在搞申请，也有影响。&lt;/p&gt;
+&lt;p&gt;毕业后，我想把它扔了。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GOSemSim an R package for measuring semantic similarity among GO terms and gene products</title>
+      <link>https://guangchuangyu.github.io/2010/05/gosemsim-an-r-package-for-measuring-semantic-similarity-among-go-terms-and-gene-products/</link>
+      <pubDate>Fri, 28 May 2010 05:06:26 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2010/05/gosemsim-an-r-package-for-measuring-semantic-similarity-among-go-terms-and-gene-products/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/20179076&#34;&gt;&lt;img src=&#34;http://bioinformatics.oxfordjournals.org/content/26/18.cover.gif&#34; alt=&#34;&#34; title=&#34;bioinfo&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;abstract&#34;&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;SUMMARY&lt;/strong&gt;: The semantic comparisons of Gene Ontology (GO) annotations
+provide quantitative ways to compute similarities between genes and gene
+groups, and have became important basis for many bioinformatics analysis
+approaches. GOSemSim is an R package for semantic similarity computation
+among GO terms, sets of GO terms, gene products and gene clusters. Four
+information content (IC)- and a graph-based methods are implemented in
+the GOSemSim package, multiple species including human, rat, mouse, fly
+and yeast are also supported. The functions provided by the GOSemSim
+offer flexibility for applications, and can be easily integrated into
+high-throughput analysis pipelines. AVAILABILITY: GOSemSim is released
+under the GNU General Public License within Bioconductor project, and
+freely available at
+&lt;a href=&#34;http://bioconductor.org/packages/2.6/bioc/html/GOSemSim.html&#34;&gt;http://bioconductor.org/packages/2.6/bioc/html/GOSemSim.html&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GOSemSim</title>
+      <link>https://guangchuangyu.github.io/2008/08/gosemsim/</link>
+      <pubDate>Mon, 11 Aug 2008 14:21:00 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2008/08/gosemsim/</guid>
+      <description>&lt;p&gt;第一次写软件包，计算基因和GO的语义相似性。&lt;/p&gt;
+&lt;p&gt;实现&lt;a href=&#34;http://bioinformatics.oxfordjournals.org/cgi/content/full/23/10/1274&#34;&gt;Wang&lt;/a&gt;的方法，基于GO的图结构。
+以及四种基于信息含量的计算方法（Resnik, Jiang, Lin, Rel）。&lt;/p&gt;
+&lt;p&gt;可以从Bioconductor下载到。
+&lt;a href=&#34;http://bioconductor.org/packages/release/bioc/html/GOSemSim.html&#34;&gt;http://bioconductor.org/packages/release/bioc/html/GOSemSim.html&lt;/a&gt;
+&lt;a href=&#34;http://bioconductor.org/packages/devel/bioc/html/GOSemSim.html&#34;&gt;http://bioconductor.org/packages/devel/bioc/html/GOSemSim.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;支持human, rat, mouse, fly, yeast, zebrafish,worm, E coli,
+arabidopsis等物种。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

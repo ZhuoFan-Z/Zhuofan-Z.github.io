@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>simulation on Guangchuang Yu</title>
+    <link>https://guangchuangyu.github.io/tags/simulation/</link>
+    <description>Recent content in simulation on Guangchuang Yu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Aug 2014 11:24:35 +0800</lastBuildDate><atom:link href="https://guangchuangyu.github.io/tags/simulation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The spread of new mutations</title>
+      <link>https://guangchuangyu.github.io/2014/08/the-spread-of-new-mutations/</link>
+      <pubDate>Wed, 13 Aug 2014 11:24:35 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2014/08/the-spread-of-new-mutations/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Genetic drift is the term used in population genetics to refer to the statistical drift over time of gene frequencies in a population due to random sampling effects in the formation of successive generations.
+In a narrower sense, genetic drift refers to the expected population dynamics of neutral alleles (those defined as having no positive or negative impact on reproductive fitness), which are predicted to eventually become fixed at zero or 100% frequency in the absence of other mechanisms affecting allele distributions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The most important keyword in the definition of &lt;em&gt;genetic drift&lt;/em&gt; is &lt;strong&gt;random sampling effects&lt;/strong&gt;. The figure belowed illustrates this idea. The surviving individuals do not necessarily have selection advantage. They are randomly selected.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

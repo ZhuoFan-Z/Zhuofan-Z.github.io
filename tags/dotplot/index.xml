@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dotplot on Guangchuang Yu</title>
+    <link>https://guangchuangyu.github.io/tags/dotplot/</link>
+    <description>Recent content in dotplot on Guangchuang Yu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 Nov 2016 10:30:00 +0800</lastBuildDate><atom:link href="https://guangchuangyu.github.io/tags/dotplot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>showCategory parameter for visualizing compareCluster output</title>
+      <link>https://guangchuangyu.github.io/2016/11/showcategory-parameter-for-visualizing-comparecluster-output/</link>
+      <pubDate>Thu, 03 Nov 2016 10:30:00 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2016/11/showcategory-parameter-for-visualizing-comparecluster-output/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;I am using dotplot() to visualize results from enrichGO(), enrichDO(), enricher() and compareCluster() in clusterProfiler R package. When specifying showCategory, I get the right number of categories except with the results of compareCluser().&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In my case, I use compareCluster() on a list of 3 elements:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;str(ClusterList)
+List of 3
+$ All : chr [1:1450] &amp;ldquo;89886&amp;rdquo; &amp;ldquo;29923&amp;rdquo; &amp;ldquo;100132891&amp;rdquo; &amp;ldquo;101410536&amp;rdquo; &amp;hellip;
+$ g1  : chr [1:858] &amp;ldquo;89886&amp;rdquo; &amp;ldquo;29923&amp;rdquo; &amp;ldquo;100132891&amp;rdquo; &amp;ldquo;101410536&amp;rdquo; &amp;hellip;
+$ g2: chr [1:592] &amp;ldquo;5325&amp;rdquo; &amp;ldquo;170691&amp;rdquo; &amp;ldquo;29953&amp;rdquo; &amp;ldquo;283392&amp;rdquo; &amp;hellip;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CompareGO_BP=compareCluster(ClusterList, fun=&amp;ldquo;enrichGO&amp;rdquo;, pvalueCutoff=0.01, pAdjustMethod=&amp;ldquo;BH&amp;rdquo;, OrgDb=org.Hs.eg.db,ont=&amp;ldquo;BP&amp;rdquo;,readable=T)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;dotplot(CompareGO_BP, showCategory=10, title=&amp;ldquo;GO - Biological Process&amp;rdquo;)&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I ask for 10 categories, but I get 15 categories in All, 8 categories in g1 and 12 categories in g2. None of the categories, neither the sum of the categories are 10&amp;hellip;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Is the option showCategory working in the case of comparison? Am I missing something here?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;And which categories precisely will it plot? the most significant whatever my 3 cases or the most significant of each case?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The question was &lt;a href=&#34;https://support.bioconductor.org/p/88965/&#34;&gt;posted&lt;/a&gt; in Bioconductor support site. It seems quite confusing and I think I need to write a post to clarify it.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

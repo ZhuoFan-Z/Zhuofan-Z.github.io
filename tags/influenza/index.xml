@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>influenza on Guangchuang Yu</title>
+    <link>https://guangchuangyu.github.io/tags/influenza/</link>
+    <description>Recent content in influenza on Guangchuang Yu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Dec 2017 11:09:07 +0800</lastBuildDate><atom:link href="https://guangchuangyu.github.io/tags/influenza/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>visualizing reassortment history using seqcombo</title>
+      <link>https://guangchuangyu.github.io/2017/12/visualizing-reassortment-history-using-seqcombo/</link>
+      <pubDate>Tue, 05 Dec 2017 11:09:07 +0800</pubDate>
+      
+      <guid>https://guangchuangyu.github.io/2017/12/visualizing-reassortment-history-using-seqcombo/</guid>
+      <description>&lt;p&gt;Reassortment is an important strategy for influenza A viruses to
+introduce a HA subtype that is new to human populations, which creates
+the possibilities of pandemic.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/GuangchuangYu/seqcombo/master/vignettes/figures/srep25549-f2.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;A diagram showed above (Figure 2 of &lt;code&gt;doi:10.1038/srep25549&lt;/code&gt;) is widely
+used to illustrate the reassortment events. While such diagrams are
+mostly manually draw and edit without software tool to automatically
+generate. Here, I implemented the &lt;code&gt;hybrid_plot&lt;/code&gt; function for producing
+publication quality figure of reassortment events.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;library(tibble)
+library(ggplot2)
+
+
+n &amp;lt;- 8
+
+virus_info &amp;lt;- tibble(
+    id = 1:7,
+    x = c(rep(1990, 4), rep(2000, 2), 2009),
+    y = c(1,2,3,5, 1.5, 3, 4),
+    segment_color = list(
+        rep(&#39;purple&#39;, n),
+        rep(&#39;red&#39;, n),
+        rep(&#39;darkgreen&#39;, n),
+        rep(&#39;lightgreen&#39;, n),
+        c(&#39;darkgreen&#39;, &#39;darkgreen&#39;, &#39;red&#39;, &#39;darkgreen&#39;, &#39;red&#39;, &#39;purple&#39;, &#39;red&#39;, &#39;purple&#39;),
+        c(&#39;darkgreen&#39;, &#39;darkgreen&#39;, &#39;red&#39;, &#39;darkgreen&#39;, &#39;darkgreen&#39;, &#39;purple&#39;, &#39;red&#39;, &#39;purple&#39;),
+        c(&#39;darkgreen&#39;, &#39;lightgreen&#39;, &#39;lightgreen&#39;, &#39;darkgreen&#39;, &#39;darkgreen&#39;, &#39;purple&#39;, &#39;red&#39;, &#39;purple&#39;))
+)
+
+flow_info &amp;lt;- tibble(from = c(1,2,3,3,4,5,6),
+                    to = c(5,5,5,6,7,6,7))
+hybrid_plot(virus_info, flow_info)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://guangchuangyu.github.io/blog_images/Bioconductor/seqcombo/reassortment_files/figure-markdown_strict/unnamed-chunk-2-1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
